@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
+import { BrowserRouter } from "react-router-dom"
+import Header from "./Header"
+import Table from "./Table"
 
 class App extends Component {
-  render() {
+  render(){
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <BrowserRouter>
+          <div className="container">
+            <Header />
+            <Table />
+          </div>
+        </BrowserRouter>
       </div>
-    );
+    )
   }
 }
 
