@@ -10,6 +10,14 @@
     "react-scripts": "^1.1.4",
     "semantic-ui-react": "^0.80.2"
   },
+  "proxy": {
+  "/auth/*": {
+    "target": "http://localhost:5000"
+  },
+  "/api/*": {
+    "target": "http://localhost:5000"
+  }
+},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

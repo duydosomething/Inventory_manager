@@ -37,7 +37,7 @@ class ModalModalExample extends Component {
         <Modal.Header style={{backgroundColor: "#005ce6", color:"white"}}>{this.state.header}</Modal.Header>
         <Modal.Content>
           <div>
-              <form class="ui form">
+              <form action={this.state.login ? "/auth/login" : "/auth/register"} class="ui form">
                 <div class="field">
                   <label>Email</label>
                   <input placeholder="Email" />
@@ -51,7 +51,6 @@ class ModalModalExample extends Component {
               <div style={{paddingTop:20}}>
             {this.state.login ?
               this.renderToRegister() : this.renderToLogin()
-
               //<button onClick={this.handleRegister} class="ui right floated primary button">Register</button> :
               //<button onClick={this.handleLogin} class="ui right floated primary button">Login</button>
             }
