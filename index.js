@@ -13,7 +13,7 @@ const app = express();
 
 mongoose.connect(keys.mongoURI)
 
-// require('./config/passport')(passport); // pass passport for configuration
+require('./services/passport')(passport); // pass passport for configuration
 
 
 app.use(morgan('dev')); // log every request to the console
@@ -26,7 +26,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-require("./Routes/authRoutes")(app, passport);
+require("./routes/authRoutes")(app, passport);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
