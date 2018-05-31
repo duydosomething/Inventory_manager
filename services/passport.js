@@ -14,7 +14,7 @@ module.exports = passport => {
 // maybe add the boolean here?
   passport.use("local-signup", new LocalStrategy({
     usernameField : "email",
-    passwordField : "password"
+    passwordField : "password",
     // , isAdmin : false
     passReqToCallback : true
   },

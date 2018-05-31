@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  email: email,
-  password: password,
+  email: String,
+  password: String,
   isAdmin: Boolean
 });
 
@@ -15,4 +15,4 @@ userSchema.methods.validPassowrd = password => {
   return bcrypt.compareSync(password, this.local.password);
 }
 
-modeul.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);
