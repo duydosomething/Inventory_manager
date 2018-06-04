@@ -2,6 +2,12 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "/auth" :{
+      "target": "http://localhost:5000",
+      "secure": false
+    }
+  },
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -10,14 +16,6 @@
     "react-scripts": "^1.1.4",
     "semantic-ui-react": "^0.80.2"
   },
-  "proxy": {
-  "/auth/*": {
-    "target": "http://localhost:5000"
-  },
-  "/api/*": {
-    "target": "http://localhost:5000"
-  }
-},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

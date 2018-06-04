@@ -33,26 +33,26 @@ class ModalModalExample extends Component {
   render(){
     //this.header = this.state.login ? "Login" : "Register";
     return (
-      <Modal onClose={this.handleLogin} size="tiny" trigger={<a class="item">Login</a>}>
+      <Modal onClose={this.handleLogin} size="tiny" trigger={<a className="item">Login</a>}>
         <Modal.Header style={{backgroundColor: "#005ce6", color:"white"}}>{this.state.header}</Modal.Header>
         <Modal.Content>
           <div>
-              <form action={this.state.login ? "/auth/login" : "/auth/register"} class="ui form">
-                <div class="field">
+              <form action={this.state.login ? "/auth/login" : "/auth/register"} method="post" className="ui form">
+                <div className="field">
                   <label>Email</label>
-                  <input placeholder="Email" />
+                  <input type="text" placeholder="Email" name="email"/>
                 </div>
-                <div class="field">
+                <div className="field">
                   <label>Password</label>
-                  <input placeholder="Password" />
+                  <input type="password" placeholder="Password" name="password"/>
                 </div>
-                <button type="submit" class="ui button" role="button">Submit</button>
+                <button type="submit" className="ui button" role="button">Submit</button>
               </form>
               <div style={{paddingTop:20}}>
             {this.state.login ?
               this.renderToRegister() : this.renderToLogin()
-              //<button onClick={this.handleRegister} class="ui right floated primary button">Register</button> :
-              //<button onClick={this.handleLogin} class="ui right floated primary button">Login</button>
+              //<button onClick={this.handleRegister} className="ui right floated primary button">Register</button> :
+              //<button onClick={this.handleLogin} className="ui right floated primary button">Login</button>
             }
             </div>
           </div>

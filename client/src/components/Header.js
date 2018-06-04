@@ -22,17 +22,17 @@ class Header extends Component {
 
         {this.renderLogo()}
 
-        <div class="ui menu hover" style={{ padding: 0}}>
-          <a class="item">All Devices</a>
-          <a class="item">My Devices</a>
+        <div className="ui menu hover" style={{ padding: 0}}>
+          <a className="item">All Devices</a>
+          <a className="item">My Devices</a>
           <ModalModalExample />
-          <div class="right menu">
-            <div class="ui right aligned category search item">
-              <div class="ui transparent icon input">
-                <input type="text" class="prompt" placeholder="Search animals..." />
-                <i class="search link icon"></i>
+          <div className="right menu">
+            <div className="ui right aligned category search item">
+              <div className="ui transparent icon input">
+                <input type="text" className="prompt" placeholder="Search animals..." />
+                <i className="search link icon"></i>
               </div>
-              <div class="results">
+              <div className="results">
               </div>
             </div>
           </div>
