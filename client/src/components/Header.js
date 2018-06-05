@@ -17,6 +17,7 @@ class Header extends Component {
     )
   }
   render() {
+    
     return (
       <div>
 
@@ -25,20 +26,13 @@ class Header extends Component {
         <div className="ui menu hover" style={{ padding: 0}}>
           <a className="item">All Devices</a>
           <a className="item">My Devices</a>
-          <ModalModalExample />
+
           <div className="right menu">
-            <div className="ui right aligned category search item">
-              <div className="ui transparent icon input">
-                <input type="text" className="prompt" placeholder="Search animals..." />
-                <i className="search link icon"></i>
-              </div>
-              <div className="results">
-              </div>
-            </div>
+            <ModalModalExample />
           </div>
         </div>
+    </div>
 
-      </div>
 
     )
   }

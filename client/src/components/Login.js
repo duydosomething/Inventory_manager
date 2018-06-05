@@ -30,6 +30,21 @@ class ModalModalExample extends Component {
       <div>Don't have an account? Please <a onClick={this.handleRegister}>Register</a></div>
     )
   }
+
+  renderNameFields = () => {
+    return (
+      <div>
+        <div className="field">
+          <label>First Name</label>
+          <input type="text" placeholder="First Name" name="firstName"/>
+        </div>
+        <div className="field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last Name" name="lastName"/>
+        </div>
+      </div>
+    )
+  }
   render(){
     //this.header = this.state.login ? "Login" : "Register";
     return (
@@ -38,6 +53,7 @@ class ModalModalExample extends Component {
         <Modal.Content>
           <div>
               <form action={this.state.login ? "/auth/login" : "/auth/register"} method="post" className="ui form">
+                {!this.state.login && this.renderNameFields()}
                 <div className="field">
                   <label>Email</label>
                   <input type="text" placeholder="Email" name="email"/>

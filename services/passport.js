@@ -20,13 +20,15 @@ module.exports = (passport) => {
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     },
     function(req, email, password, done) {
-        if (email)
-            email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
+        if (email) {
+            email = email.toLowerCase();
+          } // Use lower-case e-mails to avoid case-sensitive e-mail matching
 
         // asynchronous
         process.nextTick(function() {
             User.findOne({ 'email' :  email }, function(err, user) {
                 // if there are any errors, return the error
+                hashedPassword = user.password;
                 if (err) {
                     return done(err);
                 }
@@ -35,7 +37,7 @@ module.exports = (passport) => {
                 if (!user) {
                     return done(null, false, req.flash('loginMessage', 'No user found.'));
                 }
-                if (!user.validPassword(password)) {
+                if (!user.validPassword(password, hashedPassword)) {
                     return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
                 }
                 // all is well, return user
@@ -67,7 +69,6 @@ module.exports = (passport) => {
                   if (user) {
                       return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
                   } else {
-                      console.log(email);
 
                       // create the user
                       var newUser            = new User();
@@ -98,8 +99,9 @@ module.exports = (passport) => {
                       user.email = email;
                       user.password = user.generateHash(password);
                       user.save(function (err) {
-                          if (err)
+                          if (err) {
                               return done(err);
+                          }
 
                           return done(null,user);
                       });

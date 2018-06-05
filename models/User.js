@@ -5,15 +5,17 @@ const bcrypt = require("bcrypt");
 const userSchema = new Schema({
   email: String,
   password: String,
+  firstName: String,
+  lastName: String,
   isAdmin : {type: Boolean, default: false}
 });
 
-userSchema.methods.generateHash = password => {
+userSchema.methods.generateHash = (password) => {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 }
 
-userSchema.methods.validPassword = password => {
-  return bcrypt.compareSync(password, this.password);
+userSchema.methods.validPassword = (password, hashedPassword) => {
+  return bcrypt.compareSync(password, hashedPassword);
 }
 
 module.exports = mongoose.model("User", userSchema);
