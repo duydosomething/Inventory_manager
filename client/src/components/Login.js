@@ -27,7 +27,7 @@ class ModalModalExample extends Component {
 
   renderToRegister = () => {
     return (
-      <div>Don't have an account? Please <a onClick={this.handleRegister}>Register</a></div>
+      <div>Do not have an account? Please <a onClick={this.handleRegister}>Register</a></div>
     )
   }
 
