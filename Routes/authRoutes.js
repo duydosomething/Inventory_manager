@@ -20,4 +20,8 @@ module.exports = (app, passport) => {
     failureRedirect: "/auth",
     failureFlash : true
   }));
+
+  app.get("auth/current_user", (req, res) =>{
+    res.send(req.user);
+  })
 }
