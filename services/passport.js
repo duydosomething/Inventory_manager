@@ -28,15 +28,15 @@ module.exports = (passport) => {
         process.nextTick(function() {
             User.findOne({ 'email' :  email }, function(err, user) {
                 // if there are any errors, return the error
-                hashedPassword = user.password;
+
                 if (err) {
                     return done(err);
                 }
-
                 // if no user is found, return the message
                 if (!user) {
                     return done(null, false, req.flash('loginMessage', 'No user found.'));
                 }
+                hashedPassword = user.password;
                 if (!user.validPassword(password, hashedPassword)) {
                     return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
                 }
@@ -54,6 +54,10 @@ module.exports = (passport) => {
     passReqToCallback : true
   },
   ( req, email, password, done ) => {
+    let { firstName, lastName } = req.body;
+    firstName = firstName.charAt(0).toUpperCase() + firstName.substr(1);
+    lastName = lastName.charAt(0).toUpperCase() + lastName.substr(1);
+    console.log(firstName, lastName);
     if (email) {
       email = email.toLowerCase();
     }
@@ -72,7 +76,8 @@ module.exports = (passport) => {
 
                       // create the user
                       var newUser            = new User();
-
+                      newUser.firstName = firstName;
+                      newUser.lastName = lastName;
                       newUser.email    = email;
                       newUser.password = newUser.generateHash(password);
                       newUser.save(function(err) {

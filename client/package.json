@@ -3,17 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "proxy": {
-    "/auth" :{
+    "/auth": {
       "target": "http://localhost:5000",
       "secure": false
     }
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-modal": "^3.4.4",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.1.4",
+    "redux-form": "^7.3.0",
+    "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.80.2"
   },
   "scripts": {

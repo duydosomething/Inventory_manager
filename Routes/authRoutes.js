@@ -21,7 +21,7 @@ module.exports = (app, passport) => {
     failureFlash : true
   }));
 
-  app.get("auth/current_user", (req, res) =>{
+  app.get("/auth/current_user", (req, res) =>{
     res.send(req.user);
   })
 }

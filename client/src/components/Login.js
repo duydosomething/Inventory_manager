@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 
 class Login extends Component {
   constructor(props){
-<<<<<<< HEAD
+
     super(props)
     this.handleRegister = this.props.handleRegister.bind(this);
-=======
-    super(props);
     this.state = { login: true,
                     header: "Login"}
 
@@ -47,7 +45,7 @@ class Login extends Component {
         </div>
       </div>
     )
->>>>>>> 770bba96fd82c47b0df71dee9345aebcc041b518
+
   }
   render(){
     return (
