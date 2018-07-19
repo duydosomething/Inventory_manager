@@ -23,5 +23,7 @@ module.exports = (app, passport) => {
 
   app.get("/auth/current_user", (req, res) =>{
     res.send(req.user);
-  })
+  });
+
+  
 }
