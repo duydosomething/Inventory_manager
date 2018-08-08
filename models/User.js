@@ -7,8 +7,7 @@ const userSchema = new Schema({
   password: String,
   firstName: String,
   lastName: String,
-  isAdmin : {type: Boolean, default: false},
-  devices : [{ type : mongoose.Schema.Types.ObjectId, ref: 'User' }]
+  isAdmin : {type: Boolean, default: false}
 });
 
 userSchema.methods.generateHash = (password) => {

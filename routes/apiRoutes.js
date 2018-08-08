@@ -1,5 +1,5 @@
 const User = require("../models/User");
-const Devices = require("../models/Device");
+const Device = require("../models/Device");
 
 module.exports = (app) => {
   app.get("/api/users", (req, res) => {
@@ -9,8 +9,20 @@ module.exports = (app) => {
   });
 
   app.post("/api/addnewdevice", (req, res) => {
-    console.log(req.body);
-    res.send(req.body);
+    const { sku, uid, serialNumber, deviceCategory, owner  } = req.body;
+    let comment = "";
+    if (req.body.comment ){
+      comment = req.body.comment;
+    }
+    const device = new Device({
+      sku,
+      uid,
+      serialNumber,
+      deviceCategory,
+      owner,
+      comment: comment
+    });
+    device.save();
   })
 
 

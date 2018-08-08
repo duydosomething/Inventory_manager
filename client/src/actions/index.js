@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_USER, FETCH_DB_USERS, ADD_NEW_DEVICE } from "./types";
+import { FETCH_USER, FETCH_DB_USERS} from "./types";
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get("/auth/current_user");
